@@ -1,32 +1,25 @@
 #![no_main]
 #![no_std]
 
-extern crate cortex_m;
-
 #[macro_use(entry, exception)]
-extern crate cortex_m_rt as rt;
+extern crate cortex_m_rt;
+extern crate cortex_m;
 extern crate panic_semihosting;
 
-use cortex_m::asm;
-use rt::ExceptionFrame;
-
+// the main entry point
 entry!(main);
 fn main() -> ! {
-    loop {
-        asm::bkpt();
-    }
+    loop {}
 }
 
-// define the hard fault handler
+// the hard fault handler
 exception!(HardFault, hard_fault);
-
-fn hard_fault(ef: &ExceptionFrame) -> ! {
+fn hard_fault(ef: &cortex_m_rt::ExceptionFrame) -> ! {
     panic!("HardFault at {:#?}", ef);
 }
 
-// define the default exception handler
+// the default exception handler
 exception!(*, default_handler);
-
 fn default_handler(irqn: i16) {
     panic!("Unhandled exception (IRQn = {})", irqn);
 }
