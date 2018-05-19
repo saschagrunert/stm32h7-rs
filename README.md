@@ -6,13 +6,18 @@ Microcontrollers.
 # Dependencies
 
 - [Rust nightly toolchain](https://github.com/rust-lang-nursery/rustup.rs)
-- [xargo](https://github.com/japaric/xargo)
 - ARM Cross Compiler (arm-none-eabi-gcc)
 
 # Building
 
-Be sure that your `env` contains `RUST_TARGET_PATH=$(pwd)`.
+Install the rust-std component for your target, if you haven't done so already
 
 ```console
-xargo build
+$ rustup target add thumbv7em-none-eabihf
+```
+
+Build the application:
+
+```console
+cargo build --release
 ```
