@@ -19,5 +19,5 @@ $ rustup target add thumbv7em-none-eabihf
 Build the application:
 
 ```console
-cargo build --release
+$ cargo build --release
 ```
