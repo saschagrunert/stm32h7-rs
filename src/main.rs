@@ -1,24 +1,32 @@
-#![feature(used)]
+#![no_main]
 #![no_std]
 
 extern crate cortex_m;
-extern crate cortex_m_rt;
-extern crate cortex_m_semihosting;
 
-use core::fmt::Write;
+#[macro_use(entry, exception)]
+extern crate cortex_m_rt as rt;
+extern crate panic_semihosting;
+
 use cortex_m::asm;
-use cortex_m_semihosting::hio;
+use rt::ExceptionFrame;
 
-// As we are not using interrupts, we just register a dummy catch all handler
-#[link_section = ".vector_table.interrupts"]
-#[used]
-static INTERRUPTS: [extern "C" fn(); 240] = [default_handler; 240];
-
-extern "C" fn default_handler() {
-    asm::bkpt();
+entry!(main);
+fn main() -> ! {
+    loop {
+        asm::bkpt();
+    }
 }
 
-fn main() {
-    let mut stdout = hio::hstdout().unwrap();
-    writeln!(stdout, "Hello, world!").unwrap();
+// define the hard fault handler
+exception!(HardFault, hard_fault);
+
+fn hard_fault(ef: &ExceptionFrame) -> ! {
+    panic!("HardFault at {:#?}", ef);
+}
+
+// define the default exception handler
+exception!(*, default_handler);
+
+fn default_handler(irqn: i16) {
+    panic!("Unhandled exception (IRQn = {})", irqn);
 }
