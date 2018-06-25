@@ -18,7 +18,7 @@ bare-metal = "0.2.0"
 cortex-m = "0.5.2"
 cortex-m-rt = "0.5.1"
 cortex-m-semihosting = "0.3.0"
-panic-semihosting = "0.2.0"
+panic-semihosting = "0.3.0"
 vcell = "0.1.0"
 
 [profile.dev]
