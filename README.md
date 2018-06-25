@@ -1,4 +1,5 @@
 # STM32H7 Rust
+[![Build Status](https://travis-ci.org/saschagrunert/stm32h7-rs.svg)](https://travis-ci.org/saschagrunert/stm32h7-rs) [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/saschagrunert/stm32h7-rs/blob/master/LICENSE)
 
 A template for building applications for ARM Cortex-M7 STM32H7xx
 Microcontrollers.
