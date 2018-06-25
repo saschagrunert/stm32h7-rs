@@ -1,6 +1,3 @@
-#![deny(warnings)]
+//! The main library interface
+#![deny(missing_docs, warnings)]
 #![no_std]
-
-extern crate bare_metal;
-extern crate cortex_m;
-extern crate vcell;
