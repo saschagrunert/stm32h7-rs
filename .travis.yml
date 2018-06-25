@@ -26,11 +26,6 @@ before_cache:
   # Travis can't cache files that are not readable by "others"
   - chmod -R a+r $HOME/.cargo
 
-branches:
-  only:
-    - staging
-    - trying
-
 notifications:
   email:
     on_success: never
