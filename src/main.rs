@@ -15,10 +15,16 @@ use stm32h7xx::App;
 // The main entry point
 entry!(main);
 fn main() -> ! {
-    // Run the application
-    if let Err(e) = App::run() {
-        panic!("Unable to run app: {:?}", e);
-    }
+    // Create a new application instance
+    match App::new() {
+        Ok(mut app) => {
+            // Run the application
+            if let Err(e) = app.run() {
+                panic!("Unable to run app: {:?}", e);
+            }
+        }
+        Err(e) => panic!("Unable to create app: {:?}", e),
+    };
 
     unreachable!();
 }

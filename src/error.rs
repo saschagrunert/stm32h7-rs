@@ -5,6 +5,7 @@ use core::{convert::From, fmt};
 #[derive(Debug)]
 pub enum Error {
     Format,
+    Initialization,
     Unknown,
 }
 
