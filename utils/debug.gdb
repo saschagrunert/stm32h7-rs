@@ -1,4 +1,4 @@
-target remote :3333
+target ext :3333
 
 set remote hardware-breakpoint-limit 8
 set remote hardware-watchpoint-limit 4
