@@ -1,7 +1,5 @@
 //! The main library interface
 #![deny(missing_docs)]
-#![feature(alloc)]
-#![feature(lang_items)]
 #![no_std]
 
 #[macro_use]
@@ -22,7 +20,7 @@ use cortex_m_rt::heap_start;
 use cortex_m_semihosting::hio;
 use embedded_hal::digital::OutputPin;
 use error::Error;
-use stm32h7::stm32h7x3::Peripherals;
+use stm32h7::stm32h743::Peripherals;
 
 mod error;
 mod gpio;

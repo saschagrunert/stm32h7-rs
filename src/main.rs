@@ -32,7 +32,7 @@ fn main() -> ! {
 #[lang = "oom"]
 #[no_mangle]
 // The out of memory handler
-pub fn rust_oom() -> ! {
+pub fn rust_oom(_: core::alloc::Layout) -> ! {
     loop {
         asm::bkpt();
     }

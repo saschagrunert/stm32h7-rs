@@ -66,7 +66,7 @@ macro_rules! gpio {
         pub mod $gpiox {
             use core::marker::PhantomData;
             use embedded_hal::digital::{InputPin, OutputPin};
-            use stm32h7::stm32h7x3::{$GPIOX, RCC};
+            use stm32h7::stm32h743::{$GPIOX, RCC};
             use super::*;
 
             /// GPIO parts
